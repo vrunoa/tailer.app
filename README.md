@@ -1,1 +1,2 @@
-# workshoper-app
+# tailer.app
+Learn with workshops
