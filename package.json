@@ -1,0 +1,48 @@
+{
+  "name": "workshoper-app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "prestart": "standard",
+    "start": "DEV=1 ./node_modules/electron-prebuilt/dist/Electron.app/Contents/MacOS/Electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrunoa/workshoper-app.git"
+  },
+  "keywords": [
+    "workshop",
+    "workshops",
+    "learn",
+    "electron"
+  ],
+  "author": "vrunoa <vruno.alassia@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vrunoa/workshoper-app/issues"
+  },
+  "homepage": "https://github.com/vrunoa/workshoper-app#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "electron-prebuilt": "^1.3.9",
+    "font-awesome": "^4.7.0",
+    "marked": "^0.3.6",
+    "monaco-editor": "^0.7.0"
+  },
+  "devDependencies": {
+    "standard": "^8.5.0"
+  },
+  "standard": {
+    "globals": [
+      "monaco",
+      "self",
+      "path",
+      "fs",
+      "workshops"
+    ],
+    "ignore": [
+      "workshops/*"
+    ]
+  }
+}
