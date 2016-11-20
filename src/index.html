@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Workshoper App</title>
+  <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="./css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <div>
+      <div id="toolbar">
+        <div id="workshops_list">
+          <select id="workshops_select"></select>
+        </div>
+        <div id="exercises_list">
+          <select id="workshops_select"></select>
+        </div>
+        <div id="buttons">
+          <button title="Save file"><i class="fa fa-save"></i></button>
+          <button title="Run test"><i class="fa fa-play"></i></button>
+        </div>
+      </div>
+      <div id="main_container">
+        <div id="left_container">
+          <div id="editor"></div>
+        </div>
+        <div id="right_container">
+          <div id="exercise_readme"></div>
+          <div id="exercise_solution"></div>
+        </div>
+      </div>
+      <div id="console"></div>
+  </div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="./js/requirer.js"></script>
+  <script src="./js/editor.js"></script>
+  <script src="./js/marked.js"></script>
+  <script src="./js/manager.js"></script>
+</body>
+</html>

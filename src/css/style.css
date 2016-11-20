@@ -1,0 +1,48 @@
+body {
+  margin:0px;
+  padding:0px;
+  background-color: #21252B;
+}
+
+#left_container {
+  float:left;
+  width: 70%;
+  border-right:1px solid #000;
+  border-bottom:1px solid #000;
+}
+
+#right_container {
+  float: left;
+  width: 30%;
+}
+
+#editor {
+  width: 100%;
+  min-height: 400px;
+}
+
+#toolbar {
+  padding:8px;
+  background-color: #282C34;
+  border-bottom:1px solid #000;
+}
+
+#toolbar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.fa-play {
+  color: #73C990 !important;
+}
+
+.fa-save {
+  color: #ccc;
+}
+
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+}
