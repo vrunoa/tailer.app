@@ -6,7 +6,7 @@ self.module = undefined
 self.process.browser = true
 
 loader.require(['vs/editor/editor.main'], () => {
-  let editor = monaco.editor.create(document.getElementById('editor'), {
+  monaco.editor.create(document.getElementById('editor'), {
     language: 'javascript',
     theme: 'vs-dark',
     automaticLayout: true

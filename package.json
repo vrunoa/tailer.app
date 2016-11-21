@@ -25,6 +25,7 @@
   "homepage": "https://github.com/vrunoa/workshoper-app#readme",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
     "electron-prebuilt": "^1.3.9",
     "font-awesome": "^4.7.0",
     "marked": "^0.3.6",
@@ -37,9 +38,10 @@
     "globals": [
       "monaco",
       "self",
+      "w",
       "path",
-      "fs",
-      "workshops"
+      "angular",
+      "controllers"
     ],
     "ignore": [
       "workshops/*"

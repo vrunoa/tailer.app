@@ -1,7 +1,47 @@
+@font-face {
+    font-family: 'Roboto-Black';
+    src: url('../fonts/Roboto-Black.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
 body {
   margin:0px;
   padding:0px;
   background-color: #21252B;
+  font-family: 'Roboto-Thin', sans-serif;
+}
+
+i {
+  color: #ccc;
+  font-size: 1.2em;
+}
+
+#settings-button {
+  float:right;
 }
 
 #left_container {
@@ -22,7 +62,7 @@ body {
 }
 
 #toolbar {
-  padding:8px;
+  padding:8px 8px 8px 30px;
   background-color: #282C34;
   border-bottom:1px solid #000;
 }
@@ -31,18 +71,41 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    font-size:0.8em;
+}
+
+.save-button {
+  color: #528BFF;
+  border: 1px solid #528BFF !important;
+  border-radius:6px;
+  margin-left: 5px;
+}
+
+label {
+  color :#ccc;
+  font-size:0.8em;
 }
 
 .fa-play {
   color: #73C990 !important;
-}
-
-.fa-save {
-  color: #ccc;
+  margin-left: 15px
 }
 
 select {
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
+}
+
+#workshops_list, #exercises_list, #buttons {
+  float:left;
+}
+
+#exercises_list {
+  margin-left: 15px;
+}
+
+.clearfix{
+  clear:both !important;
+}
+
+#console {
+  background-color: #282C34;
 }

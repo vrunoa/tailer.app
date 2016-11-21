@@ -1,0 +1,32 @@
+<div>
+    <div id="toolbar">
+      <button id="settings-button" title="Settings"><i class="fa fa-gear"></i></button>
+      <div id="workshops_list">
+        <label>Workshop</label>
+        <select id="workshops_select" ng-model="list">
+          <option ng-repeat="w in list track by $index">{{w.title}}</option>
+        </select>
+        <button title="More workshops"><i class="fa fa-plus"></i></button>
+      </div>
+      <div id="exercises_list">
+        <label>Exercise</label>
+        <select id="workshops_select">
+        </select>
+      </div>
+      <div id="buttons">
+        <button class="save-button">Save</button>
+        <button title="Run test"><i class="fa fa-play"></i></button>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div id="main_container">
+      <div id="left_container">
+        <div id="editor"></div>
+      </div>
+      <div id="right_container">
+        <div id="exercise_readme"></div>
+        <div id="exercise_solution"></div>
+      </div>
+    </div>
+    <div id="console"></div>
+</div>
