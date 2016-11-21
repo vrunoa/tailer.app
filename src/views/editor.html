@@ -5,13 +5,14 @@
         <label>Workshop</label>
         <select id="workshops_select" ng-model="selected_workshop" ng-change="selectWorkshop()">
           <option ng-value="false" selected>-- Select a workshop --</option>
-          <option ng-repeat="w in list" ng-value="w.name">{{w.title}}</option>
+          <option ng-repeat="w in workshops" ng-value="$index">{{w.title}}</option>
         </select>
         <button title="More workshops"><i class="fa fa-plus"></i></button>
       </div>
       <div id="exercises_list">
         <label>Exercise</label>
-        <select id="workshops_select">
+        <select id="workshops_select" ng-model="selected_exercise" ng-change="selectExercise()">
+          <option ng-repeat="e in exercises" ng-value="$index">{{e.name}}</option>
         </select>
       </div>
       <div id="buttons">

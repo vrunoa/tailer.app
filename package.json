@@ -41,7 +41,9 @@
       "w",
       "path",
       "angular",
-      "controllers"
+      "controllers",
+      "editor",
+      "marked"
     ],
     "ignore": [
       "workshops/*"
