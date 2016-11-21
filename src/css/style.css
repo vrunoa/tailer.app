@@ -48,7 +48,6 @@ i {
   float:left;
   width: 70%;
   border-right:1px solid #000;
-  border-bottom:1px solid #000;
 }
 
 #right_container {
@@ -108,9 +107,32 @@ select {
 }
 
 #console {
-  background-color: #282C34;
+  background-color: #000;
+  min-height: 240px;
 }
 
 #exercise_readme {
   color: #ccc;
+}
+
+#console p {
+  color: #ccc;
+  font-size: 0.7em;
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 1em;
+}
+
+.console_bar {
+  width: 100%;
+  padding-left:8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: #282C34;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.console_bar label {
+  font-size: 0.7em !important;
 }
