@@ -62,7 +62,7 @@ i {
 }
 
 #toolbar {
-  padding:8px 8px 8px 30px;
+  padding:8px 8px 8px 8px;
   background-color: #282C34;
   border-bottom:1px solid #000;
 }
@@ -111,7 +111,7 @@ select {
   min-height: 240px;
 }
 
-#exercise_readme {
+#exercise_readme, #workshop_intro {
   color: #ccc;
 }
 
@@ -135,4 +135,38 @@ select {
 
 .console_bar label {
   font-size: 0.7em !important;
+}
+
+.download_list {
+  float:left;
+  width: 60%;
+}
+.workshop_intro {
+  float: left;
+  width: 38%;
+}
+
+table {
+  margin-top: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+table button {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+}
+
+th, td {
+  font-size:0.8em;
+  color: #ccc;
+  text-align: left;
+  padding:4px;
+}
+
+td {
+  border-top: 1px solid #ccc !important;
 }

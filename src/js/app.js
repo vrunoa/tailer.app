@@ -8,6 +8,10 @@ tailer.config(['$routeProvider', function ($routeProvider) {
     templateUrl: 'views/editor.html',
     controller: 'EditorController'
   })
+  .when('/downloader', {
+    templateUrl: 'views/downloader.html',
+    controller: 'DownloaderController'
+  })
   .when('/settings', {
     templateUrl: 'views/settings.html',
     controller: 'SettingsController'

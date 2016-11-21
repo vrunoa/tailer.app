@@ -1,13 +1,15 @@
 const fs = require('fs')
 const path = require('path')
+const request = require('request')
 const workshopsFolder = path.join(__dirname, '..', 'workshops')
+
+const raise = (err) => {
+  console.error(err)
+}
 
 class Workshops {
   constructor () {
     this.workshops = []
-  }
-  raise (err) {
-    console.error(err)
   }
   findWorkshops () {
     let list = fs.readdirSync(workshopsFolder)
@@ -27,7 +29,7 @@ class Workshops {
       }
       return info
     } catch (e) {
-      this.raise(e)
+      raise(e)
       return null
     }
   }
@@ -69,5 +71,31 @@ class Workshops {
   }
 }
 
-var w = new Workshops()
-w.findWorkshops()
+class Downloader {
+  getAvailableWorkshops (cb) {
+    request('https://raw.githubusercontent.com/vrunoa/tailer.app-workshops/master/docs/workshops.json', (err, res, body) => {
+      if (err) {
+        raise(err)
+        return
+      }
+      cb(JSON.parse(body))
+    })
+  }
+  getWorkshopReadme (workshop, cb) {
+    let githubUrl = workshop['github_url'].replace('https://github.com/', '')
+    githubUrl = ['https://raw.githubusercontent.com', githubUrl, 'master', 'README.md'].join('/')
+    console.log(githubUrl)
+    request(githubUrl, (err, res, body) => {
+      if (err) {
+        raise(err)
+        return
+      }
+      cb(body)
+    })
+  }
+}
+
+var manager = new Workshops()
+manager.findWorkshops()
+var downloader = new Downloader()
+console.log(downloader)

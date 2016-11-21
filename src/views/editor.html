@@ -1,13 +1,13 @@
 <div>
     <div id="toolbar">
-      <button id="settings-button" title="Settings"><i class="fa fa-gear"></i></button>
+      <button id="settings-button" title="Settings" type="button" ng-click="openSettings()"><i class="fa fa-gear"></i></button>
       <div id="workshops_list">
         <label>Workshop</label>
         <select id="workshops_select" ng-model="selected_workshop" ng-change="selectWorkshop()">
           <option ng-value="false" selected>-- Select a workshop --</option>
           <option ng-repeat="w in workshops" ng-value="$index">{{w.title}}</option>
         </select>
-        <button title="More workshops"><i class="fa fa-plus"></i></button>
+        <button title="More workshops" type="button" ng-click="openDownloader()"><i class="fa fa-plus"></i></button>
       </div>
       <div id="exercises_list">
         <label>Exercise</label>
@@ -16,8 +16,8 @@
         </select>
       </div>
       <div id="buttons">
-        <button class="save-button">Save</button>
-        <button title="Run test"><i class="fa fa-play"></i></button>
+        <button class="save-button" type="button">Save</button>
+        <button title="Run test" type="button"><i class="fa fa-play"></i></button>
       </div>
       <div class="clearfix"></div>
     </div>
