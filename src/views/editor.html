@@ -3,8 +3,9 @@
       <button id="settings-button" title="Settings"><i class="fa fa-gear"></i></button>
       <div id="workshops_list">
         <label>Workshop</label>
-        <select id="workshops_select" ng-model="list">
-          <option ng-repeat="w in list track by $index">{{w.title}}</option>
+        <select id="workshops_select" ng-model="selected_workshop" ng-change="selectWorkshop()">
+          <option ng-value="false" selected>-- Select a workshop --</option>
+          <option ng-repeat="w in list" ng-value="w.name">{{w.title}}</option>
         </select>
         <button title="More workshops"><i class="fa fa-plus"></i></button>
       </div>
