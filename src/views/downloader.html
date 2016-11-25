@@ -6,6 +6,12 @@
     </div>
     <div class="clearfix"></div>
   </div>
+  <div class="dialog">
+    <div class="dialog-close-button">
+      <button type="button" ng-click="closeDialog()"><i class="fa fa-close"></i></button>
+    </div>
+    <div id="workshop_intro"></div>
+  </div>
   <div class="downloads_container">
     <div class="download_list">
       <table cellspacing="0" cellpading="0" width="100%">
@@ -23,13 +29,11 @@
             <td>{{_w.nice_name}}</td>
             <td><button type="button">{{_w.github_url}}</button></td>
             <td>{{_w.tag_release}}</td>
-            <td><button type="button" ng-click="showInfo(key)"><i class="fa fa-plus"></i></button></td>
-            <td><button type="button"><i class="fa fa-download"></i></button></td>
+            <td><button type="button" ng-click="showInfo(key)"><i class="fa fa-info"></i></button></td>
+            <td><button type="button" ng-click="downloadWorkshop(key)"><i class="fa fa-download"></i></button></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div id="workshop_intro"></div>
-    <div class="clearfix"></div>
   </div>
 </div>

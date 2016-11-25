@@ -6,7 +6,8 @@ controllers.controller('EditorController', ['$scope', function ($scope) {
   $scope.selected_exercise = 0
   $scope.selectWorkshop = _ => {
     $scope.exercises = []
-    if ($scope.selected_workshop === 0) {
+    console.log($scope.selected_workshop)
+    if ($scope.selected_workshop === '-1') {
       return
     }
     $scope.exercises = manager.getExercises($scope.workshops[$scope.selected_workshop])
@@ -36,8 +37,15 @@ controllers.controller('DownloaderController', ['$scope', function ($scope) {
   })
   $scope.showInfo = (name) => {
     downloader.getWorkshopReadme($scope.download_list[name], (data) => {
+      document.querySelector('.dialog').style.display = 'block'
       document.getElementById('workshop_intro').innerHTML = marked(data)
     })
+  }
+  $scope.closeDialog = _ => {
+    document.querySelector('.dialog').style.display = 'none'
+  }
+  $scope.downloadWorkshop = (w) => {
+    downloader.downloadWorkshop(w)
   }
 }])
 

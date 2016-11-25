@@ -30,7 +30,8 @@
     "font-awesome": "^4.7.0",
     "marked": "^0.3.6",
     "monaco-editor": "^0.7.0",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "tar-fs": "^1.14.0"
   },
   "devDependencies": {
     "standard": "^8.5.0"

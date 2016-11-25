@@ -4,7 +4,7 @@
       <div id="workshops_list">
         <label>Workshop</label>
         <select id="workshops_select" ng-model="selected_workshop" ng-change="selectWorkshop()">
-          <option ng-value="false" selected>-- Select a workshop --</option>
+          <option ng-value="-1" selected>-- Select a workshop --</option>
           <option ng-repeat="w in workshops" ng-value="$index">{{w.title}}</option>
         </select>
         <button title="More workshops" type="button" ng-click="openDownloader()"><i class="fa fa-plus"></i></button>

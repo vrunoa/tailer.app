@@ -2,6 +2,8 @@ const fs = require('fs')
 const path = require('path')
 const request = require('request')
 const workshopsFolder = path.join(__dirname, '..', 'workshops')
+const https = require('https')
+const tar = require('tar-fs')
 
 const raise = (err) => {
   console.error(err)
@@ -72,19 +74,26 @@ class Workshops {
 }
 
 class Downloader {
+  constructor () {
+    this.download_list = []
+  }
   getAvailableWorkshops (cb) {
+    if (this.download_list.length > 0) {
+      cb(this.download_list)
+      return
+    }
     request('https://raw.githubusercontent.com/vrunoa/tailer.app-workshops/master/docs/workshops.json', (err, res, body) => {
       if (err) {
         raise(err)
         return
       }
-      cb(JSON.parse(body))
+      this.download_list = JSON.parse(body)
+      cb(this.download_list)
     })
   }
   getWorkshopReadme (workshop, cb) {
     let githubUrl = workshop['github_url'].replace('https://github.com/', '')
     githubUrl = ['https://raw.githubusercontent.com', githubUrl, 'master', 'README.md'].join('/')
-    console.log(githubUrl)
     request(githubUrl, (err, res, body) => {
       if (err) {
         raise(err)
@@ -92,6 +101,48 @@ class Downloader {
       }
       cb(body)
     })
+  }
+  getTagURL (workshop) {
+    return [
+      workshop['github_url'].replace('https://', 'https://codeload.'),
+      'tar.gz',
+      `${workshop.tag_release}`
+    ].join('/')
+  }
+  createTmp (w, workshop) {
+    let date = (new Date()).getTime()
+    return path.join(
+      __dirname, '..', 'tmp',
+      `${w}-${date}-${workshop.tag_release}.tar.gz`
+    )
+  }
+  getWorkshopFolder (w) {
+    return path.join(
+      __dirname, '..', 'workshops', w
+    )
+  }
+  downloadWorkshop (w, cb) {
+    let workshop = this.download_list['workshops'][w]
+    if (workshop === null) {
+      cb(null, new Error(`Error trying to get workshop ${w}`))
+      return
+    }
+    let tagURL = this.getTagURL(workshop)
+    let tmpPath = this.createTmp(w, workshop)
+    let workshopFolder = this.getWorkshopFolder(w)
+    console.log(workshopFolder)
+    let file = fs.createWriteStream(tmpPath)
+    let download = (tagURL, tmpPath, _cb_) => {
+      https.get(tagURL, (response) => {
+        response.pipe(file)
+        untar(tmpPath, _cb_)
+      })
+    }
+    let untar = (tmpPath, _cb_) => {
+      console.log(tmpPath)
+      fs.createReadStream(tmpPath).pipe(tar.extract(workshopFolder))
+    }
+    download(tagURL, tmpPath)
   }
 }
 

@@ -138,12 +138,10 @@ select {
 }
 
 .download_list {
-  float:left;
-  width: 60%;
 }
-.workshop_intro {
-  float: left;
-  width: 38%;
+
+#workshop_intro {
+  padding: 10px;
 }
 
 table {
@@ -169,4 +167,27 @@ th, td {
 
 td {
   border-top: 1px solid #ccc !important;
+}
+
+.dialog {
+  width: 100%;
+  background-color: rgba(0,0,0,0.9);
+  position: absolute;
+  z-index:999999;
+  color: #ccc;
+  position: absolute;
+  height: 100%;
+  display: none;
+}
+
+.dialog button {
+  position: relative;
+  float:right;
+  margin:8px;
+  background: none;
+  border:none;
+}
+
+.dialog button .fa-close {
+  font-size: 2em;
 }
