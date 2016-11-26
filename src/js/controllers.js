@@ -32,12 +32,18 @@ controllers.controller('DownloaderController', ['$scope', function ($scope) {
     document.location.href = '#/editor'
   }
   $scope.download_list = []
-  downloader.getAvailableWorkshops((list) => {
-    $scope.$apply(_ => { $scope.download_list = list['workshops'] })
+  document.querySelector('.loader').style.display = 'block'
+  manager.getAvailableWorkshops((list) => {
+    $scope.$apply(_ => {
+      $scope.download_list = list['workshops']
+      document.querySelector('.loader').style.display = 'none'
+    })
   })
   $scope.showInfo = (name) => {
-    downloader.getWorkshopReadme($scope.download_list[name], (data) => {
+    document.querySelector('.loader').style.display = 'block'
+    manager.getWorkshopReadme($scope.download_list[name], (data) => {
       document.querySelector('.dialog').style.display = 'block'
+      document.querySelector('.loader').style.display = 'none'
       document.getElementById('workshop_intro').innerHTML = marked(data)
     })
   }
@@ -45,7 +51,7 @@ controllers.controller('DownloaderController', ['$scope', function ($scope) {
     document.querySelector('.dialog').style.display = 'none'
   }
   $scope.downloadWorkshop = (w) => {
-    downloader.downloadWorkshop(w)
+    manager.downloadWorkshop(w)
   }
 }])
 

@@ -191,3 +191,10 @@ td {
 .dialog button .fa-close {
   font-size: 2em;
 }
+
+.loader {
+  position: absolute;
+  left:50%;
+  top:10px;
+  display: none;
+}

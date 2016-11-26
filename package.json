@@ -45,8 +45,7 @@
       "angular",
       "controllers",
       "editor",
-      "marked",
-      "downloader"
+      "marked"      
     ],
     "ignore": [
       "workshops/*"

@@ -12,6 +12,7 @@ const raise = (err) => {
 class Workshops {
   constructor () {
     this.workshops = []
+    this.download_list = []
   }
   findWorkshops () {
     let list = fs.readdirSync(workshopsFolder)
@@ -71,12 +72,6 @@ class Workshops {
   getExerciseInfo (exercise) {
     return fs.readFileSync(exercise['description_dir'], 'utf-8')
   }
-}
-
-class Downloader {
-  constructor () {
-    this.download_list = []
-  }
   getAvailableWorkshops (cb) {
     if (this.download_list.length > 0) {
       cb(this.download_list)
@@ -130,7 +125,6 @@ class Downloader {
     let tagURL = this.getTagURL(workshop)
     let tmpPath = this.createTmp(w, workshop)
     let workshopFolder = this.getWorkshopFolder(w)
-    console.log(workshopFolder)
     let file = fs.createWriteStream(tmpPath)
     let download = (tagURL, tmpPath, _cb_) => {
       https.get(tagURL, (response) => {
@@ -139,14 +133,10 @@ class Downloader {
       })
     }
     let untar = (tmpPath, _cb_) => {
-      console.log(tmpPath)
       fs.createReadStream(tmpPath).pipe(tar.extract(workshopFolder))
     }
     download(tagURL, tmpPath)
   }
 }
-
 var manager = new Workshops()
 manager.findWorkshops()
-var downloader = new Downloader()
-console.log(downloader)
